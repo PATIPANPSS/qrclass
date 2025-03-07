@@ -1,16 +1,24 @@
-import Navbar from '@/components/Navbar/page'
-import React from 'react'
+"use client";
+
+import Header from "@/components/Header.jsx/page";
+import Navbar from "@/components/Navbar/page";
+import React from "react";
 
 const Dashboard = () => {
   return (
-    <div>
-        <Navbar />
-        <div className='container mx-auto p-4'>
-            <h1 className='text-2xl font-bold mb-4'>Dashboard</h1>
-            <p className="text-gray-600">This is your main dashboard. Navigate to Scan to check attendance.</p>
-        </div>
-    </div>
-  )
-}
+    <div className="min-h-screen bg-cover bg-center">
+      <Navbar />
 
-export default Dashboard
+      <Header />
+
+      {/* Main Content */}
+      <div className="container mx-auto p-6 text-center">
+        <p className="text-lg font-medium">
+          บันทึกการใช้งานระบบบันทึกการเข้าร่วมกิจกรรม
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;
