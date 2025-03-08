@@ -8,7 +8,10 @@ const Class = () => {
   const { classrooms, setClassrooms } = useClass();
 
   const handleDelete = (id) => {
-    setClassrooms(classrooms.filter((classroom) => classroom.id !== id));
+    if(window.confirm('ยืนยันการลบ')) {
+      setClassrooms(classrooms.filter((classroom) => classroom.id !== id));
+      alert('ลบสำเร็จ!!!')
+    }
   };
 
   const handleEdit = (classroom) => {

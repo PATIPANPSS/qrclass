@@ -22,7 +22,7 @@ const EditClass = ({ params }) => {
 
   // ดึงข้อมูลจาก classrooms ใน Context ตาม id
   useEffect(() => {
-    const selectedClassroom = classrooms.find(c => c.id === parseInt(unwrappedParams.id))
+    const selectedClassroom = classrooms.find((c) => c.id === parseInt(unwrappedParams.id))
     if (selectedClassroom) {
       setClassroom(selectedClassroom);
     } else {
@@ -33,11 +33,13 @@ const EditClass = ({ params }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // อัพเดทข้อมูลใน classrooms
-    const updatedClassrooms = classrooms.map(c => c.id === classroom.id ? classroom : c)
-    setClassrooms(updatedClassrooms)
-    alert("แก้ไขข้อมูลสำเร็จ!!!");
-    router.push("/class"); // กลับไปหน้า Class หลังบันทึก
+    if(window.confirm('ยืนยันการเปลี่ยนแปลง')) {
+      // อัพเดทข้อมูลใน classrooms
+      const updatedClassrooms = classrooms.map((c) => c.id === classroom.id ? classroom : c)
+      setClassrooms(updatedClassrooms)
+      alert("แก้ไขข้อมูลสำเร็จ!!!");
+      router.push("/class"); // กลับไปหน้า Class หลังบันทึก
+    }
   };
 
   const handleChange = (e) => {
@@ -115,7 +117,7 @@ const EditClass = ({ params }) => {
                 name="day"
                 value={classroom.day}
                 onChange={handleChange}
-                className="mt-1 block w-min rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 required
               >
                 <option value="--">--</option>
@@ -137,7 +139,7 @@ const EditClass = ({ params }) => {
                 name="date"
                 value={classroom.date}
                 onChange={handleChange}
-                className="mt-1 block w-min rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 required
               />
             </div>
