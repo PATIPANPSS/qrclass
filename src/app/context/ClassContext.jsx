@@ -9,11 +9,20 @@ export const ClassProvider = ({ children }) => {
     {
       id: 1,
       name: "patipan phaiseesuk",
-      courseId: 123,
+      courseId: "IS123",
       courseName: "SA",
       room: "BA4",
       day: "Monday",
       date: "09:00",
+    },
+    {
+      id: 2,
+      name: "patipan phaiseesuk",
+      courseId: "IT456",
+      courseName: "DB",
+      room: "BA2",
+      day: "Friday",
+      date: "11:00",
     },
   ]);
 
